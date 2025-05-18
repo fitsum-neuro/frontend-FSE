@@ -7,6 +7,17 @@ const {authorization} = require("../middlewares/authorization");
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
 
+const jwt = require('jsonwebtoken');
+
+
+userSchema.methods.generateAuthToken = function() {
+  const token = jwt.sign(
+    { _id: this._id, role: this.role, email: this.email, firstName: this.firstName },
+    process.env.JWT_PRIVATE_KEY
+  );
+  return token;
+};
+
 router.get("/", authorization, async (req, res) => {
   if (req.user.role != "admin")
     return res.status(401).send("you are unauthorized");
