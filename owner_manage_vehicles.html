@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage My Vehicles - Delta Rental</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo"><a href="index.html">Delta Rental</a></div>
+             <nav class="main-nav">
+                 <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="owner_dashboard.html">My Dashboard</a></li>
+                    <li><a href="owner_manage_vehicles.html" class="active">My Vehicles</a></li>
+                    <li><a href="owner_bookings.html">Bookings</a></li>
+                    <li><a href="owner_earnings.html">Earnings</a></li>
+                    <li><a href="user_profile.html">My Profile</a></li>
+                    <li><a href="index.html" class="btn btn-secondary" style="padding: 0.5rem 1rem; color: white;">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Manage My Vehicles</h1>
+            <p>View, edit, or update the status of your listed vehicles.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="dashboard-layout">
+            <aside class="dashboard-sidebar">
+                <h3>Owner Menu</h3>
+                 <ul>
+                    <li><a href="owner_dashboard.html">Dashboard Overview</a></li>
+                    <li><a href="owner_manage_vehicles.html" class="active">Manage My Vehicles</a></li>
+                    <li><a href="owner_add_vehicle.html">Add New Vehicle</a></li>
+                    <li><a href="owner_bookings.html">View Bookings & Requests</a></li>
+                    <li><a href="owner_earnings.html">Earnings Report</a></li>
+                    <li><a href="user_profile.html">My Profile Settings</a></li>
+                    <li><a href="index.html">Logout</a></li>
+                </ul>
+            </aside>
+
+            <main class="dashboard-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <h2>My Vehicle Listings</h2>
+                    <a href="owner_add_vehicle.html" class="btn btn-success">Add New Vehicle</a>
+                </div>
+                
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Photo</th>
+                                <th>Make & Model</th>
+                                <th>License Plate</th>
+                                <th>Price/Day</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Example Vehicle 1 -->
+                            <tr>
+                                <td><img src="images/car1_thumb.jpg" alt="Toyota Corolla" style="width: 80px; height: 60px; object-fit: cover; border-radius: .2rem;"></td>
+                                <td><a href="vehicle_details.html?id=1" target="_blank">Toyota Corolla 2020</a></td>
+                                <td>ET A56789</td>
+                                <td>ETB 1500</td>
+                                <td><span style="color: green; font-weight:bold;">Active</span></td>
+                                <td class="table-actions">
+                                    <a href="owner_edit_vehicle.html?id=1" class="btn btn-sm btn-primary">Edit</a>
+                                    <a href="#" class="btn btn-sm btn-secondary">Set Inactive</a>
+                                    <a href="#" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this listing? This action cannot be undone.')">Delete</a>
+                                </td>
+                            </tr>
+                            <!-- Example Vehicle 2 -->
+                            <tr>
+                                <td><img src="images/car2_thumb.jpg" alt="Toyota Land Cruiser" style="width: 80px; height: 60px; object-fit: cover; border-radius: .2rem;"></td>
+                                <td><a href="vehicle_details.html?id=2" target="_blank">Toyota Land Cruiser Prado</a></td>
+                                <td>AA B12345</td>
+                                <td>ETB 3500</td>
+                                <td><span style="color: green; font-weight:bold;">Active</span></td>
+                                <td class="table-actions">
+                                    <a href="owner_edit_vehicle.html?id=2" class="btn btn-sm btn-primary">Edit</a>
+                                    <a href="#" class="btn btn-sm btn-secondary">Set Inactive</a>
+                                    <a href="#" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
+                                </td>
+                            </tr>
+                            <!-- Example Vehicle 3 (Inactive) -->
+                             <tr>
+                                <td><img src="images/car3_thumb.jpg" alt="Hyundai Accent" style="width: 80px; height: 60px; object-fit: cover; border-radius: .2rem;"></td>
+                                <td><a href="vehicle_details.html?id=3" target="_blank">Hyundai Accent 2019</a></td>
+                                <td>OR C98765</td>
+                                <td>ETB 1200</td>
+                                <td><span style="color: orange; font-weight:bold;">Inactive (Under Maintenance)</span></td>
+                                <td class="table-actions">
+                                    <a href="owner_edit_vehicle.html?id=3" class="btn btn-sm btn-primary">Edit</a>
+                                    <a href="#" class="btn btn-sm btn-success">Set Active</a>
+                                     <a href="#" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
+                                </td>
+                            </tr>
+                            <!-- If no vehicles:
+                            <tr>
+                                <td colspan="6" class="text-center">You have not listed any vehicles yet. <a href="owner_add_vehicle.html">Add your first vehicle!</a></td>
+                            </tr>
+                            -->
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>© 2025 Delta Rental. All rights reserved.</p>
+             <p>
+                <a href="about.html">About Us</a> | 
+                <a href="contact.html">Contact</a> | 
+                <a href="#">Terms of Service</a> | 
+                <a href="#">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="js/auth.js"></script>
+<script>
+  const firebaseConfig = {
+  apiKey: "AIzaSyDwPJ4JUS_l3WithXuSB8-x8DpEgfYROts",
+  authDomain: "delta-rental-db03f.firebaseapp.com",
+  projectId: "delta-rental-db03f",
+  storageBucket: "delta-rental-db03f.firebasestorage.app",
+  messagingSenderId: "763197939608",
+  appId: "1:763197939608:web:adb9138f5eaab55c7595ed"
+};
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth(); // Get the auth instance
+</script>
+</body>
+</html>

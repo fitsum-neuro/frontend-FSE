@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Management - Admin - Delta Rental</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo"><a href="index.html">Delta Rental - Admin</a></div>
+            <nav class="main-nav">
+                 <ul>
+                    <li><a href="admin_dashboard.html">Dashboard</a></li>
+                    <li><a href="admin_user_management.html">Users</a></li>
+                    <li><a href="admin_vehicle_management.html">Vehicles</a></li>
+                    <li><a href="admin_booking_management.html" class="active">Bookings</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="index.html" class="btn btn-secondary" style="padding: 0.5rem 1rem; color: white;">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Booking Management</h1>
+            <p>View and manage all platform bookings, intervene if necessary.</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="dashboard-layout">
+            <aside class="dashboard-sidebar">
+                <h3>Admin Menu</h3>
+                <ul>
+                    <li><a href="admin_dashboard.html">Overview</a></li>
+                    <li><a href="admin_user_management.html">User Management</a></li>
+                    <li><a href="admin_owner_management.html">Owner Management</a></li>
+                    <li><a href="admin_vehicle_management.html">Vehicle Management</a></li>
+                    <li><a href="admin_booking_management.html" class="active">Booking Management</a></li>
+                    <li><a href="index.html">Logout</a></li>
+                </ul>
+            </aside>
+
+            <main class="dashboard-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <h2>All Platform Bookings</h2>
+                    <input type="text" class="form-control" placeholder="Search by Booking ID, Renter, Owner, or Vehicle..." style="width: 400px;">
+                </div>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Booking ID</th>
+                                <th>Vehicle</th>
+                                <th>Renter</th>
+                                <th>Owner</th>
+                                <th>Dates</th>
+                                <th>Total Cost</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>BK00123</td>
+                                <td><a href="admin_vehicle_details.html?id=VEH001">Toyota Corolla</a></td>
+                                <td><a href="admin_user_details.html?id=USR001">Abebe B.</a></td>
+                                <td><a href="admin_user_details.html?id=USR002">Jane S.</a></td>
+                                <td>Mar 10 - Mar 12, 2025</td>
+                                <td>ETB 3000</td>
+                                <td><span style="color: green;">Confirmed</span></td>
+                                <td class="table-actions">
+                                    <a href="admin_booking_details.html?id=BK00123" class="btn btn-sm btn-outline-primary">View</a>
+                                    <a href="#" class="btn btn-sm btn-danger">Cancel Booking (Override)</a>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td>BK00124</td>
+                                <td><a href="admin_vehicle_details.html?id=VEH005">Suzuki Swift</a></td>
+                                <td><a href="admin_user_details.html?id=USR010">Hana T.</a></td>
+                                <td><a href="admin_user_details.html?id=USR015">Fitsum K.</a></td>
+                                <td>Mar 15 - Mar 18, 2025</td>
+                                <td>ETB 4500</td>
+                                <td><span style="color: orange;">Pending Owner Confirmation</span></td>
+                                <td class="table-actions">
+                                    <a href="admin_booking_details.html?id=BK00124" class="btn btn-sm btn-outline-primary">View</a>
+                                </td>
+                            </tr>
+                            <!-- More rows -->
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Pagination placeholder -->
+                <nav class="mt-3 text-center"><p>Page 1 of 10</p></nav>
+            </main>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container"><p>© 2025 Delta Rental - Admin Panel.</p></div>
+    </footer>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="js/auth.js"></script>
+<script>
+  const firebaseConfig = {
+  apiKey: "AIzaSyDwPJ4JUS_l3WithXuSB8-x8DpEgfYROts",
+  authDomain: "delta-rental-db03f.firebaseapp.com",
+  projectId: "delta-rental-db03f",
+  storageBucket: "delta-rental-db03f.firebasestorage.app",
+  messagingSenderId: "763197939608",
+  appId: "1:763197939608:web:adb9138f5eaab55c7595ed"
+};
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth(); // Get the auth instance
+</script>
+</body>
+</html>

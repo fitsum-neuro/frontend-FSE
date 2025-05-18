@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Delta Rental</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo"><a href="index.html">Delta Rental</a></div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="browse_vehicles.html">Browse Vehicles</a></li>
+                    <li><a href="user_reservations.html">My Reservations</a></li>
+                    <li><a href="user_profile.html" class="active">My Profile</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="index.html" class="btn btn-secondary" style="padding: 0.5rem 1rem; color: white;">Logout</a></li> <!-- Placeholder Logout -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>My Profile</h1>
+            <p>View and manage your account details.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="dashboard-layout">
+            <aside class="dashboard-sidebar">
+                <h3>Renter Menu</h3>
+                <ul>
+                    <li><a href="user_profile.html" class="active">Profile Overview</a></li>
+                    <li><a href="user_edit_profile.html">Edit Profile</a></li>
+                    <li><a href="user_reservations.html">My Reservations</a></li>
+                    <li><a href="user_rental_history.html">Rental History</a></li>
+                    <li><a href="#">Account Settings</a></li>
+                    <li><a href="index.html">Logout</a></li>
+                </ul>
+            </aside>
+
+            <main class="dashboard-content">
+                <h2>Profile Overview</h2>
+                <div class="profile-details" style="line-height: 2;">
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                        <img src="images/user_avatar_placeholder.png" alt="User Avatar" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid #e9ecef;">
+                        <h3>Abebe Bikila</h3> <!-- Dynamic -->
+                        <p class="text-muted">Renter</p> <!-- Dynamic Role -->
+                    </div>
+
+                    <p><strong>Full Name:</strong> <span id="fullName">Abebe Bikila</span></p> <!-- Dynamic -->
+                    <p><strong>Email:</strong> <span id="email">abebe.b@example.com</span> <span class="badge badge-success" style="background-color: #28a745; color:white; padding: 0.2em 0.6em; border-radius: 0.25rem; font-size: 0.8em;">Verified</span></p> <!-- Dynamic -->
+                    <p><strong>Phone Number:</strong> <span id="phoneNumber">+251 911 123456</span></p> <!-- Dynamic -->
+                    <p><strong>Member Since:</strong> <span id="memberSince">January 15, 2024</span></p> <!-- Dynamic -->
+                    <p><strong>ID Verification Status:</strong> <span id="idStatus" style="color: #28a745; font-weight: bold;">Verified</span> <a href="#" class="btn btn-sm btn-outline-primary" style="padding: .2rem .5rem; font-size: .8rem; margin-left: 10px;">Manage ID</a></p> <!-- Dynamic -->
+                    <p><strong>Average Rating (as Renter):</strong> <span id="avgRating">4.9/5 (from 5 reviews)</span></p> <!-- Dynamic -->
+
+                    <div class="mt-4">
+                        <a href="user_edit_profile.html" class="btn btn-primary">Edit Profile</a>
+                        <a href="change_password.html" class="btn btn-secondary">Change Password</a>
+                    </div>
+                </div>
+
+                <hr class="mt-4 mb-4">
+
+                <h3>Recent Activity</h3>
+                <p><em>No recent booking activity to display.</em></p> <!-- Or display a list of recent bookings -->
+                 <!-- Example:
+                 <ul class="list-unstyled">
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">Booked Toyota Corolla (Mar 10 - Mar 12, 2025) - <a href="user_reservations.html#bookingXYZ">View Details</a></li>
+                 </ul>
+                 -->
+            </main>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>© 2025 Delta Rental. All rights reserved.</p>
+             <p>
+                <a href="about.html">About Us</a> | 
+                <a href="contact.html">Contact</a> | 
+                <a href="#">Terms of Service</a> | 
+                <a href="#">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="js/auth.js"></script>
+<script>
+  const firebaseConfig = {
+  apiKey: "AIzaSyDwPJ4JUS_l3WithXuSB8-x8DpEgfYROts",
+  authDomain: "delta-rental-db03f.firebaseapp.com",
+  projectId: "delta-rental-db03f",
+  storageBucket: "delta-rental-db03f.firebasestorage.app",
+  messagingSenderId: "763197939608",
+  appId: "1:763197939608:web:adb9138f5eaab55c7595ed"
+};
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth(); // Get the auth instance
+</script>
+</body>
+</html>

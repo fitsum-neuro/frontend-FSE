@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Vehicle - Delta Rental</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/auth.js"></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo"><a href="index.html">Delta Rental</a></div>
+             <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="owner_dashboard.html">My Dashboard</a></li>
+                    <li><a href="owner_manage_vehicles.html" class="active">My Vehicles</a></li>
+                    <li><a href="owner_bookings.html">Bookings</a></li>
+                    <li><a href="owner_earnings.html">Earnings</a></li>
+                    <li><a href="user_profile.html">My Profile</a></li>
+                    <li><a href="index.html" class="btn btn-secondary" style="padding: 0.5rem 1rem; color: white;">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Add a New Vehicle</h1>
+            <p>Provide details for your car to list it on Delta Rental.</p>
+        </div>
+    </div>
+
+    <div class="container">
+         <div class="dashboard-layout">
+            <aside class="dashboard-sidebar">
+                <h3>Owner Menu</h3>
+                <ul>
+                    <li><a href="owner_dashboard.html">Dashboard Overview</a></li>
+                    <li><a href="owner_manage_vehicles.html">Manage My Vehicles</a></li>
+                    <li><a href="owner_add_vehicle.html" class="active">Add New Vehicle</a></li>
+                    <li><a href="owner_bookings.html">View Bookings & Requests</a></li>
+                    <li><a href="owner_earnings.html">Earnings Report</a></li>
+                    <li><a href="user_profile.html">My Profile Settings</a></li>
+                    <li><a href="index.html">Logout</a></li>
+                </ul>
+            </aside>
+
+            <main class="dashboard-content">
+                <h2>Vehicle Information</h2>
+                <form action="#" method="POST" enctype="multipart/form-data"> <!-- Backend endpoint needed -->
+                    <div class="form-group">
+                        <label for="carMake">Car Make (e.g., Toyota, Hyundai)</label>
+                        <input type="text" id="carMake" name="carMake" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="carModel">Car Model (e.g., Corolla, Tucson)</label>
+                        <input type="text" id="carModel" name="carModel" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="carYear">Year of Manufacture</label>
+                        <input type="number" id="carYear" name="carYear" class="form-control" min="2000" max="2025" required> <!-- Adjust min/max -->
+                    </div>
+                    <div class="form-group">
+                        <label for="licensePlate">License Plate Number</label>
+                        <input type="text" id="licensePlate" name="licensePlate" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="carType">Car Type</label>
+                        <select id="carType" name="carType" class="form-control" required>
+                            <option value="">-- Select Type --</option>
+                            <option value="sedan">Sedan</option>
+                            <option value="suv">SUV</option>
+                            <option value="truck">Truck/Pickup</option>
+                            <option value="van">Van</option>
+                            <option value="compact">Compact</option>
+                            <option value="hatchback">Hatchback</option>
+                            <option value="minibus">Minibus</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="transmission">Transmission</label>
+                        <select id="transmission" name="transmission" class="form-control" required>
+                            <option value="automatic">Automatic</option>
+                            <option value="manual">Manual</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="fuelType">Fuel Type</label>
+                        <select id="fuelType" name="fuelType" class="form-control" required>
+                            <option value="petrol">Petrol (Benzene)</option>
+                            <option value="diesel">Diesel (Nafta)</option>
+                            <option value="electric">Electric</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="seats">Number of Seats</label>
+                        <input type="number" id="seats" name="seats" class="form-control" min="2" max="15" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description (Tell renters about your car)</label>
+                        <textarea id="description" name="description" class="form-control" rows="4" placeholder="e.g., Well-maintained, fuel-efficient, great for city driving..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="features">Features (e.g., AC, Bluetooth, GPS - comma separated)</label>
+                        <input type="text" id="features" name="features" class="form-control" placeholder="Air Conditioning, Bluetooth, GPS, Sunroof">
+                    </div>
+
+                    <hr>
+                    <h3>Location & Pricing</h3>
+                    <div class="form-group">
+                        <label for="locationCity">City</label>
+                        <input type="text" id="locationCity" name="locationCity" class="form-control" value="Addis Ababa" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="locationNeighborhood">Neighborhood / Specific Area (for pickup)</label>
+                        <input type="text" id="locationNeighborhood" name="locationNeighborhood" class="form-control" placeholder="e.g., Bole Medhanealem Area" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hourlyPrice">Price per Day (ETB)</label>
+                        <input type="number" id="hourlyPrice" name="hourlyPrice" class="form-control" min="100" step="50" required placeholder="e.g., 1500">
+                    </div>
+
+                    <hr>
+                    <h3>Upload Photos</h3>
+                    <div class="form-group">
+                        <label for="carPhotos">Car Photos (Select multiple images if possible - max 5MB per photo)</label>
+                        <input type="file" id="carPhotos" name="carPhotos[]" class="form-control" multiple accept="image/jpeg, image/png">
+                        <small>First image will be the main display image.</small>
+                    </div>
+                    
+                    <hr>
+                    <h3>Availability (Initial Setup - Can be managed later)</h3>
+                     <div class="form-group">
+                        <label for="availabilityNotes">General Availability Notes (e.g., Weekends only, Not available first week of month)</label>
+                        <textarea id="availabilityNotes" name="availabilityNotes" class="form-control" rows="2"></textarea>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary">List My Vehicle</button>
+                    <a href="owner_manage_vehicles.html" class="btn btn-secondary">Cancel</a>
+                </form>
+            </main>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>© 2025 Delta Rental. All rights reserved.</p>
+             <p>
+                <a href="about.html">About Us</a> | 
+                <a href="contact.html">Contact</a> | 
+                <a href="#">Terms of Service</a> | 
+                <a href="#">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="js/auth.js"></script>
+<script>
+  const firebaseConfig = {
+  apiKey: "AIzaSyDwPJ4JUS_l3WithXuSB8-x8DpEgfYROts",
+  authDomain: "delta-rental-db03f.firebaseapp.com",
+  projectId: "delta-rental-db03f",
+  storageBucket: "delta-rental-db03f.firebasestorage.app",
+  messagingSenderId: "763197939608",
+  appId: "1:763197939608:web:adb9138f5eaab55c7595ed"
+};
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth(); // Get the auth instance
+</script>
+<script>
+     const addVehicleForm = document.getElementById('addVehicleForm');
+    const addVehicleErrorEl = document.getElementById('addVehicleError');
+
+    if (addVehicleForm) {
+        addVehicleForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if(addVehicleErrorEl) addVehicleErrorEl.textContent = '';
+
+            // Use the fetchWithAuth helper if you defined it globally in auth.js
+            // Otherwise, get token from localStorage manually
+            // const idToken = localStorage.getItem('firebaseIdToken');
+
+            const vehicleData = { /* ... collect data ... */
+                make: document.getElementById('carMake').value,
+                // ... other fields ...
+                hourlyPrice: parseFloat(document.getElementById('hourlyPrice').value),
+                photos: document.getElementById('photoUrls')?.value.split(',').map(url => url.trim()).filter(url => url) || []
+            };
+
+
+            try {
+                // If fetchWithAuth is not global, replicate its logic or get token:
+                const token = localStorage.getItem('firebaseIdToken');
+                if (!token) {
+                    throw new Error("Not authenticated. Please login.");
+                }
+
+                const response = await fetch('http://localhost:5000/api/vehicles', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(vehicleData)
+                });
+                const responseData = await response.json();
+                if (!response.ok) throw new Error(responseData.message || 'Failed to list vehicle.');
+                
+                alert('Vehicle listed successfully!');
+                window.location.href = 'owner_manage_vehicles.html';
+            } catch (error) {
+                 console.error('Error listing vehicle:', error);
+                if(addVehicleErrorEl) addVehicleErrorEl.textContent = error.message;
+            }
+        });
+    }
+
+</script>
+</body>
+</html>

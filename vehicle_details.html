@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Details - Toyota Corolla - Delta Rental</title> <!-- Dynamic Title -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo"><a href="index.html">Delta Rental</a></div>
+            <nav class="main-nav">
+                 <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="browse_vehicles.html" class="active">Browse Vehicles</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <!-- Conditional Nav -->
+                     <li><a href="login.html">Login</a></li>
+                     <li><a href="register.html" class="btn btn-primary" style="padding: 0.5rem 1rem; color: white;">Sign Up</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- This content would be dynamically loaded based on vehicle ID -->
+    <div class="container mt-3">
+        <div class="vehicle-details-grid">
+            <div class="vehicle-main-content">
+                <h1 id="vehicleName">Toyota Corolla 2020</h1> <!-- Dynamic -->
+                <p class="text-muted"><span id="vehicleLocation">Location: Bole, Addis Ababa</span> <!-- Dynamic --> - Listed by <a href="owner_profile.html?id=owner123" id="ownerNameLink">John Doe</a></p> <!-- Dynamic Owner -->
+                
+                <div class="vehicle-images">
+                    <img src="images/car1_large.jpg" alt="Toyota Corolla Main View" id="mainImage" style="width:100%; border-radius: 0.3rem; margin-bottom: 1rem;">
+                    <!-- Thumbnails (Optional) -->
+                    <div style="display: flex; gap: 0.5rem;">
+                        <img src="images/car1_thumb1.jpg" alt="Corolla Interior" style="width: 100px; height: 75px; object-fit: cover; border-radius: 0.2rem; cursor: pointer;">
+                        <img src="images/car1_thumb2.jpg" alt="Corolla Side View" style="width: 100px; height: 75px; object-fit: cover; border-radius: 0.2rem; cursor: pointer;">
+                        <img src="images/car1_thumb3.jpg" alt="Corolla Back View" style="width: 100px; height: 75px; object-fit: cover; border-radius: 0.2rem; cursor: pointer;">
+                    </div>
+                </div>
+
+                <div class="vehicle-info mt-3" style="background: #fff; padding: 1.5rem; border-radius: .3rem;">
+                    <h3>Vehicle Description</h3>
+                    <p id="vehicleDescription">A reliable and fuel-efficient sedan, perfect for city trips and daily commutes. This 2020 Toyota Corolla offers a smooth ride, modern features, and excellent mileage. Well-maintained and regularly serviced. Seats 5 comfortably.</p> <!-- Dynamic -->
+
+                    <h3>Key Features</h3>
+                    <ul id="vehicleFeatures" class="vehicle-features">
+                        <li>Air Conditioning</li> <!-- Dynamic -->
+                        <li>Automatic Transmission</li>
+                        <li>Bluetooth Connectivity</li>
+                        <li>USB Port</li>
+                        <li>Power Windows</li>
+                    </ul>
+
+                    <h3>Specifications</h3>
+                    <p><strong>Type:</strong> <span id="specType">Sedan</span></p> <!-- Dynamic -->
+                    <p><strong>Transmission:</strong> <span id="specTransmission">Automatic</span></p> <!-- Dynamic -->
+                    <p><strong>Fuel Type:</strong> <span id="specFuel">Petrol</span></p> <!-- Dynamic -->
+                    <p><strong>Seats:</strong> <span id="specSeats">5</span></p> <!-- Dynamic -->
+
+                    <h3>Owner Rules & Guidelines</h3>
+                    <p id="ownerRules">No smoking in the car. Please return the car clean. Pets allowed on request.</p> <!-- Dynamic -->
+                </div>
+            </div>
+
+            <aside class="vehicle-sidebar">
+                <div class="booking-box">
+                    <h3>Book This Car</h3>
+                    <p style="font-size: 1.5rem; font-weight: bold; color: #28a745; margin-bottom: 1rem;" id="vehiclePrice">ETB 1500 / day</p> <!-- Dynamic -->
+                    
+                    <form id="bookingForm" action="reservation_confirmation.html"> <!-- Update action for real booking -->
+                        <div class="form-group">
+                            <label for="pickupDate">Pickup Date</label>
+                            <input type="date" id="pickupDate" name="pickupDate" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="returnDate">Return Date</label>
+                            <input type="date" id="returnDate" name="returnDate" class="form-control" required>
+                        </div>
+                        <!-- Trip duration and total cost would be calculated by JS -->
+                        <p><strong>Trip Duration:</strong> <span id="tripDuration">N/A</span></p>
+                        <p><strong>Estimated Total:</strong> <span id="estimatedTotal">ETB 0.00</span></p>
+                        
+                        <button type="submit" class="btn btn-primary btn-block mt-3">Request to Book</button>
+                        <!-- Add a message for users not logged in: -->
+                        <!-- <p class="mt-2 text-center"><a href="login.html">Login</a> or <a href="register.html">Sign up</a> to book.</p> -->
+                    </form>
+                </div>
+
+                <div class="owner-info-box mt-3" style="background: #fff; padding: 1.5rem; border-radius: .3rem; text-align: center;">
+                    <h4>About the Owner</h4>
+                    <img src="images/owner_avatar.jpg" alt="Owner Avatar" style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 1rem auto; object-fit: cover;">
+                    <h5 id="ownerBoxName"><a href="owner_profile.html?id=owner123">John Doe</a></h5> <!-- Dynamic -->
+                    <p><small>Member since: Jan 2023</small></p> <!-- Dynamic -->
+                    <p><small>Average Rating: 4.8/5 (15 Reviews)</small></p> <!-- Dynamic -->
+                    <!-- <a href="#" class="btn btn-outline-primary btn-sm mt-2">View Profile</a> -->
+                </div>
+            </aside>
+        </div>
+
+        <!-- Reviews Section (Placeholder) -->
+        <section class="reviews-section mt-4" style="background: #fff; padding: 1.5rem; border-radius: .3rem;">
+            <h2>Reviews (15)</h2> <!-- Dynamic -->
+            <div class="review-item" style="border-bottom: 1px solid #eee; padding-bottom: 1rem; margin-bottom: 1rem;">
+                <h5>Jane S. - ★★★★★</h5>
+                <p><small>Rented: March 2024</small></p>
+                <p>"Great car, very clean and drove smoothly. John was very helpful and responsive. Highly recommend!"</p>
+            </div>
+            <div class="review-item">
+                <h5>Mark B. - ★★★★☆</h5>
+                <p><small>Rented: February 2024</small></p>
+                <p>"Good value for money. Car was as described. Pickup was a bit delayed but overall a good experience."</p>
+            </div>
+            <div class="text-center mt-3">
+                <a href="#" class="btn btn-secondary">See All Reviews</a>
+            </div>
+        </section>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>© 2025 Delta Rental. All rights reserved.</p>
+             <p>
+                <a href="about.html">About Us</a> | 
+                <a href="contact.html">Contact</a> | 
+                <a href="#">Terms of Service</a> | 
+                <a href="#">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Basic JS for image gallery and date calculation (conceptual)
+        // In a real app, you'd use a library or more robust JS
+        document.addEventListener('DOMContentLoaded', function() {
+            const pickupDateEl = document.getElementById('pickupDate');
+            const returnDateEl = document.getElementById('returnDate');
+            const tripDurationEl = document.getElementById('tripDuration');
+            const estimatedTotalEl = document.getElementById('estimatedTotal');
+            const vehiclePricePerDay = 1500; // This would be dynamic
+
+            function calculateBooking() {
+                if (pickupDateEl.value && returnDateEl.value) {
+                    const pickup = new Date(pickupDateEl.value);
+                    const ret = new Date(returnDateEl.value);
+
+                    if (ret > pickup) {
+                        const diffTime = Math.abs(ret - pickup);
+                        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                        tripDurationEl.textContent = diffDays + (diffDays === 1 ? " day" : " days");
+                        estimatedTotalEl.textContent = "ETB " + (diffDays * vehiclePricePerDay).toFixed(2);
+                    } else {
+                        tripDurationEl.textContent = "N/A";
+                        estimatedTotalEl.textContent = "ETB 0.00";
+                        if (ret < pickup) alert("Return date must be after pickup date.");
+                    }
+                }
+            }
+
+            if(pickupDateEl && returnDateEl) {
+                pickupDateEl.addEventListener('change', calculateBooking);
+                returnDateEl.addEventListener('change', calculateBooking);
+            }
+
+            // Placeholder for main image change on thumbnail click
+            const thumbnails = document.querySelectorAll('.vehicle-images div img');
+            const mainImage = document.getElementById('mainImage');
+            if(mainImage && thumbnails.length > 0){
+                thumbnails.forEach(thumb => {
+                    thumb.addEventListener('click', function() {
+                        // In a real scenario, you'd have larger versions of these thumbs
+                        // For now, just reusing the thumb src if mainImage src is different
+                        // if(mainImage.src !== this.src.replace_thumb_with_large_version) {
+                        //    mainImage.src = this.src.replace_thumb_with_large_version;
+                        // }
+                        console.log("Thumbnail clicked, would change main image to: " + this.alt);
+                    });
+                });
+            }
+        });
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="js/auth.js"></script>
+<script>
+  const firebaseConfig = {
+  apiKey: "AIzaSyDwPJ4JUS_l3WithXuSB8-x8DpEgfYROts",
+  authDomain: "delta-rental-db03f.firebaseapp.com",
+  projectId: "delta-rental-db03f",
+  storageBucket: "delta-rental-db03f.firebasestorage.app",
+  messagingSenderId: "763197939608",
+  appId: "1:763197939608:web:adb9138f5eaab55c7595ed"
+};
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth(); // Get the auth instance
+</script>
+</body>
+</html>

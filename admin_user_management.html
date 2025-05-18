@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management - Admin - Delta Rental</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo"><a href="index.html">Delta Rental - Admin</a></div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="admin_dashboard.html">Dashboard</a></li>
+                    <li><a href="admin_user_management.html" class="active">Users</a></li>
+                    <li><a href="admin_vehicle_management.html">Vehicles</a></li>
+                    <li><a href="admin_booking_management.html">Bookings</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="index.html" class="btn btn-secondary" style="padding: 0.5rem 1rem; color: white;">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>User Management</h1>
+            <p>View, edit, or manage all registered users (Renters & Owners).</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="dashboard-layout">
+            <aside class="dashboard-sidebar">
+                <h3>Admin Menu</h3>
+                <ul>
+                    <li><a href="admin_dashboard.html">Overview</a></li>
+                    <li><a href="admin_user_management.html" class="active">User Management</a></li>
+                    <li><a href="admin_owner_management.html">Owner Management</a></li>
+                    <li><a href="admin_vehicle_management.html">Vehicle Management</a></li>
+                    <li><a href="admin_booking_management.html">Booking Management</a></li>
+                    <li><a href="index.html">Logout</a></li>
+                </ul>
+            </aside>
+
+            <main class="dashboard-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <h2>All Users (Renters & Owners)</h2>
+                    <input type="text" class="form-control" placeholder="Search users by name or email..." style="width: 300px;">
+                </div>
+                
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Role(s)</th>
+                                <th>Registered On</th>
+                                <th>ID Verified</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Example User 1 (Renter) -->
+                            <tr>
+                                <td>USR001</td>
+                                <td>Abebe Bikila</td>
+                                <td>abebe.b@example.com</td>
+                                <td>+251911123456</td>
+                                <td>Renter</td>
+                                <td>Jan 15, 2024</td>
+                                <td><span style="color: green;">Yes</span></td>
+                                <td><span style="color: green;">Active</span></td>
+                                <td class="table-actions">
+                                    <a href="admin_edit_user.html?id=USR001" class="btn btn-sm btn-primary">Edit</a>
+                                    <a href="#" class="btn btn-sm btn-secondary">Suspend</a>
+                                    <a href="#" class="btn btn-sm btn-danger" onclick="return confirm('Delete this user?')">Delete</a>
+                                </td>
+                            </tr>
+                            <!-- Example User 2 (Owner & Renter) -->
+                            <tr>
+                                <td>USR002</td>
+                                <td>Jane Smith</td>
+                                <td>jane.s@example.com</td>
+                                <td>+251922987654</td>
+                                <td>Owner, Renter</td>
+                                <td>Feb 01, 2024</td>
+                                <td><span style="color: green;">Yes</span></td>
+                                <td><span style="color: green;">Active</span></td>
+                                <td class="table-actions">
+                                    <a href="admin_edit_user.html?id=USR002" class="btn btn-sm btn-primary">Edit</a>
+                                    <a href="#" class="btn btn-sm btn-secondary">Suspend</a>
+                                    <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                            <!-- Example User 3 (Pending ID) -->
+                             <tr>
+                                <td>USR003</td>
+                                <td>Alem T.</td>
+                                <td>alem.t@example.com</td>
+                                <td>+251933456789</td>
+                                <td>Renter</td>
+                                <td>Mar 05, 2025</td>
+                                <td><span style="color: orange;">Pending</span> <a href="admin_user_verification.html?id=USR003" class="btn btn-sm btn-outline-primary" style="font-size: 0.7rem; padding: .1rem .3rem;">Review</a></td>
+                                <td><span style="color: green;">Active</span></td>
+                                <td class="table-actions">
+                                    <a href="admin_edit_user.html?id=USR003" class="btn btn-sm btn-primary">Edit</a>
+                                    <a href="#" class="btn btn-sm btn-secondary">Suspend</a>
+                                </td>
+                            </tr>
+                            <!-- Add more rows -->
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Pagination placeholder -->
+                <nav class="mt-3 text-center"><p>Page 1 of 5</p></nav>
+            </main>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container"><p>© 2025 Delta Rental - Admin Panel.</p></div>
+    </footer>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="js/auth.js"></script>
+<script>
+  const firebaseConfig = {
+  apiKey: "AIzaSyDwPJ4JUS_l3WithXuSB8-x8DpEgfYROts",
+  authDomain: "delta-rental-db03f.firebaseapp.com",
+  projectId: "delta-rental-db03f",
+  storageBucket: "delta-rental-db03f.firebasestorage.app",
+  messagingSenderId: "763197939608",
+  appId: "1:763197939608:web:adb9138f5eaab55c7595ed"
+};
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth(); // Get the auth instance
+</script>
+</body>
+</html>

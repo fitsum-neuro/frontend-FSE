@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Management - Admin - Delta Rental</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo"><a href="index.html">Delta Rental - Admin</a></div>
+            <nav class="main-nav">
+                 <ul>
+                    <li><a href="admin_dashboard.html">Dashboard</a></li>
+                    <li><a href="admin_user_management.html">Users</a></li>
+                    <li><a href="admin_vehicle_management.html" class="active">Vehicles</a></li>
+                    <li><a href="admin_booking_management.html">Bookings</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="index.html" class="btn btn-secondary" style="padding: 0.5rem 1rem; color: white;">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Vehicle Management</h1>
+            <p>Oversee all listed vehicles, manage their status, or edit details.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="dashboard-layout">
+            <aside class="dashboard-sidebar">
+                <h3>Admin Menu</h3>
+                <ul>
+                    <li><a href="admin_dashboard.html">Overview</a></li>
+                    <li><a href="admin_user_management.html">User Management</a></li>
+                    <li><a href="admin_owner_management.html">Owner Management</a></li>
+                    <li><a href="admin_vehicle_management.html" class="active">Vehicle Management</a></li>
+                    <li><a href="admin_booking_management.html">Booking Management</a></li>
+                    <li><a href="index.html">Logout</a></li>
+                </ul>
+            </aside>
+
+            <main class="dashboard-content">
+                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <h2>All Listed Vehicles</h2>
+                    <input type="text" class="form-control" placeholder="Search vehicles by make, model, or owner..." style="width: 300px;">
+                </div>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Vehicle ID</th>
+                                <th>Make & Model</th>
+                                <th>Owner</th>
+                                <th>License Plate</th>
+                                <th>Listed On</th>
+                                <th>Status (Platform)</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>VEH001</td>
+                                <td>Toyota Corolla 2020</td>
+                                <td><a href="admin_user_details.html?id=USR002">Jane Smith</a></td>
+                                <td>ET A56789</td>
+                                <td>Feb 10, 2024</td>
+                                <td><span style="color: green;">Active</span></td>
+                                <td class="table-actions">
+                                    <a href="admin_edit_vehicle.html?id=VEH001" class="btn btn-sm btn-primary">Edit</a>
+                                    <a href="#" class="btn btn-sm btn-secondary">Unlist/Suspend</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>VEH002</td>
+                                <td>Hyundai Tucson</td>
+                                <td><a href="admin_user_details.html?id=USR005">Mike Ross</a></td>
+                                <td>AA C12345</td>
+                                <td>Mar 01, 2025</td>
+                                <td><span style="color: orange;">Pending Review</span></td>
+                                <td class="table-actions">
+                                    <a href="admin_review_vehicle.html?id=VEH002" class="btn btn-sm btn-success">Review & Approve</a>
+                                    <a href="admin_edit_vehicle.html?id=VEH002" class="btn btn-sm btn-primary">Edit</a>
+                                </td>
+                            </tr>
+                             <!-- More rows -->
+                        </tbody>
+                    </table>
+                </div>
+                 <!-- Pagination placeholder -->
+                <nav class="mt-3 text-center"><p>Page 1 of 3</p></nav>
+            </main>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container"><p>© 2025 Delta Rental - Admin Panel.</p></div>
+    </footer>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="js/auth.js"></script>
+<script>
+  const firebaseConfig = {
+  apiKey: "AIzaSyDwPJ4JUS_l3WithXuSB8-x8DpEgfYROts",
+  authDomain: "delta-rental-db03f.firebaseapp.com",
+  projectId: "delta-rental-db03f",
+  storageBucket: "delta-rental-db03f.firebasestorage.app",
+  messagingSenderId: "763197939608",
+  appId: "1:763197939608:web:adb9138f5eaab55c7595ed"
+};
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth(); // Get the auth instance
+</script>
+</body>
+</html>

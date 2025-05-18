@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Vehicles - Delta Rental</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo"><a href="index.html">Delta Rental</a></div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="browse_vehicles.html" class="active">Browse Vehicles</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <!-- Conditional Nav based on login status -->
+                    <!-- If logged in as Renter -->
+                    <!-- <li><a href="user_profile.html">My Profile</a></li> -->
+                    <!-- <li><a href="user_reservations.html">My Reservations</a></li> -->
+                    <!-- If logged in as Owner -->
+                    <!-- <li><a href="owner_dashboard.html">Owner Dashboard</a></li> -->
+                    <!-- If logged in as Admin -->
+                    <!-- <li><a href="admin_dashboard.html">Admin Dashboard</a></li> -->
+                    <!-- If not logged in -->
+                     <li><a href="login.html">Login</a></li>
+                     <li><a href="register.html" class="btn btn-primary" style="padding: 0.5rem 1rem; color: white;">Sign Up</a></li>
+                    <!-- If logged in -->
+                    <!-- <li><a href="logout.html" class="btn btn-secondary" style="padding: 0.5rem 1rem; color: white;">Logout</a></li> -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Find Your Next Ride</h1>
+            <p>Explore a wide variety of vehicles available for rent.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Filter Section -->
+        <section class="filters-section" style="background: #fff; padding: 1.5rem; border-radius: .3rem; margin-bottom: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+            <h3 style="margin-bottom: 1rem;">Filter Vehicles</h3>
+            <form id="filterForm">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <div class="form-group">
+                        <label for="location">Location (City)</label>
+                        <input type="text" id="location" name="location" class="form-control" placeholder="e.g., Addis Ababa">
+                    </div>
+                    <div class="form-group">
+                        <label for="carType">Car Type</label>
+                        <select id="carType" name="carType" class="form-control">
+                            <option value="">Any Type</option>
+                            <option value="sedan">Sedan</option>
+                            <option value="suv">SUV</option>
+                            <option value="truck">Truck/Pickup</option>
+                            <option value="van">Van</option>
+                            <option value="compact">Compact</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="priceRange">Price Range (per day)</label>
+                        <select id="priceRange" name="priceRange" class="form-control">
+                            <option value="">Any Price</option>
+                            <option value="0-1000">ETB 0 - 1000</option>
+                            <option value="1001-2000">ETB 1001 - 2000</option>
+                            <option value="2001-3500">ETB 2001 - 3500</option>
+                            <option value="3501+">ETB 3501+</option>
+                        </select>
+                    </div>
+                     <div class="form-group">
+                        <label for="pickupDate">Pickup Date</label>
+                        <input type="date" id="pickupDate" name="pickupDate" class="form-control">
+                    </div>
+                     <div class="form-group">
+                        <label for="returnDate">Return Date</label>
+                        <input type="date" id="returnDate" name="returnDate" class="form-control">
+                    </div>
+                    <div class="form-group" style="align-self: end;">
+                        <button type="submit" class="btn btn-primary">Apply Filters</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <!-- Vehicle Listings -->
+        <section class="vehicle-listings">
+            <h2 style="margin-bottom: 1rem;">Available Vehicles (3 found)</h2> <!-- Dynamic count -->
+            <div class="card-grid">
+                <!-- Example Vehicle Card 1 -->
+                <div class="card">
+                    <img src="images/car1.jpg" alt="Toyota Corolla" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Toyota Corolla 2020</h5>
+                        <p class="card-text"><small>Location: Bole, Addis Ababa</small></p>
+                        <p class="card-text">A reliable and fuel-efficient sedan, perfect for city trips. Seats 5.</p>
+                        <p class="card-text price">ETB 1500/day</p>
+                        <a href="vehicle_details.html?id=1" class="btn btn-primary">View Details & Book</a>
+                    </div>
+                </div>
+                <!-- Example Vehicle Card 2 -->
+                <div class="card">
+                    <img src="images/car2.jpg" alt="Toyota Land Cruiser" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Toyota Land Cruiser Prado</h5>
+                        <p class="card-text"><small>Location: CMC, Addis Ababa</small></p>
+                        <p class="card-text">Spacious and rugged SUV for adventure and family trips. Seats 7.</p>
+                        <p class="card-text price">ETB 3500/day</p>
+                        <a href="vehicle_details.html?id=2" class="btn btn-primary">View Details & Book</a>
+                    </div>
+                </div>
+                <!-- Example Vehicle Card 3 -->
+                <div class="card">
+                    <img src="images/car1.jpg" alt="Hyundai Accent" class="card-img-top"> <!-- Use another placeholder -->
+                    <div class="card-body">
+                        <h5 class="card-title">Hyundai Accent 2019</h5>
+                        <p class="card-text"><small>Location: Kality, Addis Ababa</small></p>
+                        <p class="card-text">Compact and comfortable, great for navigating the city. Seats 5.</p>
+                        <p class="card-text price">ETB 1200/day</p>
+                        <a href="vehicle_details.html?id=3" class="btn btn-primary">View Details & Book</a>
+                    </div>
+                </div>
+                 <!-- Add more cards as needed or dynamically via JS -->
+            </div>
+            <!-- Pagination (Optional) -->
+            <nav aria-label="Page navigation" class="mt-4 text-center">
+                <ul style="display: inline-block; list-style: none; padding: 0;">
+                    <li style="display: inline-block; margin-right: 5px;"><a href="#" class="btn btn-outline-primary">« Prev</a></li>
+                    <li style="display: inline-block; margin-right: 5px;"><a href="#" class="btn btn-primary">1</a></li>
+                    <li style="display: inline-block; margin-right: 5px;"><a href="#" class="btn btn-outline-primary">2</a></li>
+                    <li style="display: inline-block; margin-right: 5px;"><a href="#" class="btn btn-outline-primary">3</a></li>
+                    <li style="display: inline-block;"><a href="#" class="btn btn-outline-primary">Next »</a></li>
+                </ul>
+            </nav>
+        </section>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>© 2025 Delta Rental. All rights reserved.</p>
+             <p>
+                <a href="about.html">About Us</a> | 
+                <a href="contact.html">Contact</a> | 
+                <a href="#">Terms of Service</a> | 
+                <a href="#">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="js/auth.js"></script>
+<script>
+  const firebaseConfig = {
+  apiKey: "AIzaSyDwPJ4JUS_l3WithXuSB8-x8DpEgfYROts",
+  authDomain: "delta-rental-db03f.firebaseapp.com",
+  projectId: "delta-rental-db03f",
+  storageBucket: "delta-rental-db03f.firebasestorage.app",
+  messagingSenderId: "763197939608",
+  appId: "1:763197939608:web:adb9138f5eaab55c7595ed"
+};
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth(); // Get the auth instance
+</script>
+</body>
+</html>

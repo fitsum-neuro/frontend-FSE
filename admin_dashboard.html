@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Delta Rental</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo"><a href="index.html">Delta Rental - Admin</a></div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="admin_dashboard.html" class="active">Dashboard</a></li>
+                    <li><a href="admin_user_management.html">Users</a></li>
+                    <li><a href="admin_vehicle_management.html">Vehicles</a></li>
+                    <li><a href="admin_booking_management.html">Bookings</a></li>
+                    <li><a href="#">Settings</a></li> <!-- Placeholder -->
+                    <li><a href="index.html" class="btn btn-secondary" style="padding: 0.5rem 1rem; color: white;">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Administrator Dashboard</h1>
+            <p>Platform Overview and Management Tools.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="dashboard-layout">
+            <aside class="dashboard-sidebar">
+                <h3>Admin Menu</h3>
+                <ul>
+                    <li><a href="admin_dashboard.html" class="active">Overview</a></li>
+                    <li><a href="admin_user_management.html">User Management</a></li>
+                    <li><a href="admin_owner_management.html">Owner Management</a></li>
+                    <li><a href="admin_vehicle_management.html">Vehicle Management</a></li>
+                    <li><a href="admin_booking_management.html">Booking Management</a></li>
+                    <li><a href="#">Dispute Resolution (Conceptual)</a></li>
+                    <li><a href="#">Platform Settings (Conceptual)</a></li>
+                    <li><a href="index.html">Logout</a></li>
+                </ul>
+            </aside>
+
+            <main class="dashboard-content">
+                <h2>Platform Overview</h2>
+                
+                <!-- Key Statistics -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                    <div class="stat-card" style="background-color: #f0f8ff; padding: 1.5rem; border-radius: .3rem; text-align: center; border: 1px solid #cfe2f3;">
+                        <h4>Total Users</h4>
+                        <p style="font-size: 2rem; font-weight: bold; color: #007bff;">150</p> <!-- Dynamic -->
+                        <a href="admin_user_management.html">Manage Users</a>
+                    </div>
+                    <div class="stat-card" style="background-color: #e6fff0; padding: 1.5rem; border-radius: .3rem; text-align: center; border: 1px solid #c3e6cb;">
+                        <h4>Total Owners</h4>
+                        <p style="font-size: 2rem; font-weight: bold; color: #28a745;">45</p> <!-- Dynamic -->
+                        <a href="admin_owner_management.html">Manage Owners</a>
+                    </div>
+                    <div class="stat-card" style="background-color: #fff3cd; padding: 1.5rem; border-radius: .3rem; text-align: center; border: 1px solid #ffeeba;">
+                        <h4>Listed Vehicles</h4>
+                        <p style="font-size: 2rem; font-weight: bold; color: #ffc107;">75</p> <!-- Dynamic -->
+                        <a href="admin_vehicle_management.html">Manage Vehicles</a>
+                    </div>
+                    <div class="stat-card" style="background-color: #f8d7da; padding: 1.5rem; border-radius: .3rem; text-align: center; border: 1px solid #f5c6cb;">
+                        <h4>Active Bookings</h4>
+                        <p style="font-size: 2rem; font-weight: bold; color: #dc3545;">12</p> <!-- Dynamic -->
+                        <a href="admin_booking_management.html">Manage Bookings</a>
+                    </div>
+                </div>
+
+                <h3>Recent Activities / Alerts</h3>
+                <ul class="list-unstyled">
+                    <li style="padding: 0.75rem; border: 1px solid #eee; margin-bottom: .5rem; border-radius: .2rem; background: #f9f9f9;">
+                        <strong>New User Registered:</strong> John Doe (john.doe@example.com) - <a href="admin_user_details.html?id=user150">View Profile</a> - <em>2 hours ago</em>
+                    </li>
+                    <li style="padding: 0.75rem; border: 1px solid #eee; margin-bottom: .5rem; border-radius: .2rem; background: #f9f9f9;">
+                        <strong>New Vehicle Listed:</strong> Toyota Vitz by Owner Jane Smith - <a href="admin_vehicle_details.html?id=veh75">Review Listing</a> - <em>5 hours ago</em>
+                    </li>
+                    <li style="padding: 0.75rem; border: 1px solid #eee; margin-bottom: .5rem; border-radius: .2rem; background: #fff8e1;">
+                        <strong>Pending ID Verification:</strong> Alem T. - <a href="admin_user_verification.html?id=user145">Review ID</a> - <em>1 day ago</em>
+                    </li>
+                     <!-- More activities -->
+                </ul>
+                 <div class="text-center mt-3">
+                    <a href="#" class="btn btn-secondary">View Full Activity Log</a>
+                </div>
+
+                <hr class="mt-4 mb-4">
+                <h3>System Health (Conceptual)</h3>
+                <p>Database Status: <span style="color: green;">Operational</span></p>
+                <p>API Response Time: <span style="color: green;">Normal (120ms avg)</span></p>
+                <!-- Add more system metrics as needed -->
+
+            </main>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>© 2025 Delta Rental - Admin Panel.</p>
+        </div>
+    </footer>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="js/auth.js"></script>
+<script>
+  const firebaseConfig = {
+  apiKey: "AIzaSyDwPJ4JUS_l3WithXuSB8-x8DpEgfYROts",
+  authDomain: "delta-rental-db03f.firebaseapp.com",
+  projectId: "delta-rental-db03f",
+  storageBucket: "delta-rental-db03f.firebasestorage.app",
+  messagingSenderId: "763197939608",
+  appId: "1:763197939608:web:adb9138f5eaab55c7595ed"
+};
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth(); // Get the auth instance
+</script>
+</body>
+</html>

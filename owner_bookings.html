@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookings - Delta Rental</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo"><a href="index.html">Delta Rental</a></div>
+            <nav class="main-nav">
+                 <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="owner_dashboard.html">My Dashboard</a></li>
+                    <li><a href="owner_manage_vehicles.html">My Vehicles</a></li>
+                    <li><a href="owner_bookings.html" class="active">Bookings</a></li>
+                    <li><a href="owner_earnings.html">Earnings</a></li>
+                    <li><a href="user_profile.html">My Profile</a></li>
+                    <li><a href="index.html" class="btn btn-secondary" style="padding: 0.5rem 1rem; color: white;">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Manage Bookings & Requests</h1>
+            <p>Review new requests, and view upcoming or past bookings for your vehicles.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="dashboard-layout">
+            <aside class="dashboard-sidebar">
+                <h3>Owner Menu</h3>
+                 <ul>
+                    <li><a href="owner_dashboard.html">Dashboard Overview</a></li>
+                    <li><a href="owner_manage_vehicles.html">Manage My Vehicles</a></li>
+                    <li><a href="owner_add_vehicle.html">Add New Vehicle</a></li>
+                    <li><a href="owner_bookings.html" class="active">View Bookings & Requests</a></li>
+                    <li><a href="owner_earnings.html">Earnings Report</a></li>
+                    <li><a href="user_profile.html">My Profile Settings</a></li>
+                    <li><a href="index.html">Logout</a></li>
+                </ul>
+            </aside>
+
+            <main class="dashboard-content">
+                <div class="tabs-navigation" style="margin-bottom: 1.5rem; border-bottom: 1px solid #dee2e6;">
+                    <button class="btn btn-tab active" onclick="showOwnerTab('pendingRequests')">Pending Requests (1)</button> <!-- Dynamic Count -->
+                    <button class="btn btn-tab" onclick="showOwnerTab('upcomingBookings')">Upcoming Bookings</button>
+                    <button class="btn btn-tab" onclick="showOwnerTab('pastBookings')">Past Bookings</button>
+                    <button class="btn btn-tab" onclick="showOwnerTab('cancelledBookings')">Cancelled</button>
+                </div>
+
+                <div id="pendingRequests" class="owner-tab-content">
+                    <h2>Pending Booking Requests</h2>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Vehicle</th>
+                                    <th>Renter Name</th>
+                                    <th>Requested Dates</th>
+                                    <th>Potential Earning</th>
+                                    <th>Received</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Toyota Corolla 2020</td>
+                                    <td>Hana G. (<a href="renter_profile.html?id=user789">View Profile</a>)</td>
+                                    <td>Mar 15 - Mar 17, 2025</td>
+                                    <td>ETB 2850 (after fees)</td>
+                                    <td>2 hours ago</td>
+                                    <td class="table-actions">
+                                        <a href="#" class="btn btn-sm btn-success">Accept</a>
+                                        <a href="#" class="btn btn-sm btn-danger">Decline</a>
+                                        <a href="message_renter.html?id=user789" class="btn btn-sm btn-outline-primary">Message</a>
+                                    </td>
+                                </tr>
+                                <!-- If no pending requests:
+                                <tr><td colspan="6" class="text-center">No pending booking requests at this time.</td></tr>
+                                -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="upcomingBookings" class="owner-tab-content" style="display:none;">
+                    <h2>Upcoming Confirmed Bookings</h2>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Vehicle</th>
+                                    <th>Renter Name</th>
+                                    <th>Booking Dates</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Toyota Land Cruiser</td>
+                                    <td>Kebede M.</td>
+                                    <td>Mar 10 - Mar 12, 2025</td>
+                                    <td><span style="color: green;">Confirmed</span></td>
+                                    <td class="table-actions">
+                                        <a href="booking_details_owner.html?id=book789" class="btn btn-sm btn-outline-primary">View Details</a>
+                                        <a href="message_renter.html?id=userXYZ" class="btn btn-sm btn-outline-primary">Message Renter</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div id="pastBookings" class="owner-tab-content" style="display:none;">
+                    <h2>Past Bookings</h2>
+                     <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Vehicle</th>
+                                    <th>Renter Name</th>
+                                    <th>Rental Period</th>
+                                    <th>Earnings</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Suzuki Dzire</td>
+                                    <td>Sara T.</td>
+                                    <td>Feb 20 - Feb 22, 2025</td>
+                                    <td>ETB 2200</td>
+                                    <td><span style="color: blue;">Completed</span></td>
+                                    <td class="table-actions">
+                                        <a href="booking_details_owner.html?id=bookABC" class="btn btn-sm btn-outline-primary">View Details</a>
+                                        <a href="leave_review_for_renter.html?booking_id=bookABC" class="btn btn-sm btn-success">Review Renter</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="cancelledBookings" class="owner-tab-content" style="display:none;">
+                    <h2>Cancelled Bookings</h2>
+                     <div class="table-responsive">
+                        <table>
+                             <thead>
+                                <tr>
+                                    <th>Vehicle</th>
+                                    <th>Renter Name</th>
+                                    <th>Intended Dates</th>
+                                    <th>Cancelled By</th>
+                                    <th>Reason (if any)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Toyota Vitz</td>
+                                    <td>Michael B.</td>
+                                    <td>Jan 25 - Jan 27, 2025</td>
+                                    <td>Renter</td>
+                                    <td>Change of plans</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>© 2025 Delta Rental. All rights reserved.</p>
+             <p>
+                <a href="about.html">About Us</a> | 
+                <a href="contact.html">Contact</a> | 
+                <a href="#">Terms of Service</a> | 
+                <a href="#">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
+    <script>
+        function showOwnerTab(tabName) {
+            var i;
+            var tabcontent = document.getElementsByClassName("owner-tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            var tablinks = document.getElementsByClassName("btn-tab"); // Re-use .btn-tab style
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            event.currentTarget.className += " active";
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            if(document.getElementById('pendingRequests')) {
+                 document.getElementById('pendingRequests').style.display = "block";
+                 document.querySelector('.btn-tab').classList.add('active'); // Activate first tab
+            }
+        });
+    </script>
+     <style> /* Re-using styles from user_reservations for tabs */
+        .btn-tab { background-color: transparent; border: none; padding: 0.75rem 1.5rem; cursor: pointer; font-weight: 500; color: #495057; border-bottom: 3px solid transparent; margin-right: 0.5rem;}
+        .btn-tab.active { color: #007bff; border-bottom-color: #007bff;}
+        .btn-tab:hover { color: #0056b3;}
+    </style>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="js/auth.js"></script>
+<script>
+  const firebaseConfig = {
+  apiKey: "AIzaSyDwPJ4JUS_l3WithXuSB8-x8DpEgfYROts",
+  authDomain: "delta-rental-db03f.firebaseapp.com",
+  projectId: "delta-rental-db03f",
+  storageBucket: "delta-rental-db03f.firebasestorage.app",
+  messagingSenderId: "763197939608",
+  appId: "1:763197939608:web:adb9138f5eaab55c7595ed"
+};
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth(); // Get the auth instance
+</script>
+</body>
+</html>

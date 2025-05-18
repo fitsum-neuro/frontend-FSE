@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Verification - Alem T. - Admin</title> <!-- Dynamic -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="main-header">
+        <!-- ... (admin nav) ... -->
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>ID Document Verification</h1>
+            <p>Review submitted documents for User: <span id="verifyingUserName">Alem T.</span> (USR003)</p> <!-- Dynamic -->
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="dashboard-layout">
+            <aside class="dashboard-sidebar">
+                <!-- ... (admin menu, with User Management active) ... -->
+            </aside>
+            <main class="dashboard-content">
+                <h2>Review ID Documents</h2>
+                <div style="margin-bottom: 1.5rem;">
+                    <p><strong>User:</strong> <a href="admin_edit_user.html?id=USR003" id="linkToUser">Alem T. (USR003)</a></p>
+                    <p><strong>Date Submitted:</strong> <span id="submissionDate">March 05, 2025</span></p>
+                    <p><strong>Current Status:</strong> <span id="currentIdStatus" style="color:orange; font-weight:bold;">Pending Review</span></p>
+                </div>
+
+                <div class="id-documents" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                    <div>
+                        <h4>Document Type: National ID (Front)</h4> <!-- Dynamic -->
+                        <!-- In a real app, this would be an actual image or PDF viewer -->
+                        <img src="images/placeholder_id_front.png" alt="ID Front" style="max-width:100%; border:1px solid #ccc; padding:5px; border-radius:.3rem;">
+                        <a href="images/placeholder_id_front_large.png" target="_blank" class="btn btn-sm btn-outline-primary mt-1">View Full Size</a>
+                    </div>
+                     <div>
+                        <h4>Document Type: National ID (Back)</h4> <!-- Dynamic -->
+                        <img src="images/placeholder_id_back.png" alt="ID Back" style="max-width:100%; border:1px solid #ccc; padding:5px; border-radius:.3rem;">
+                         <a href="images/placeholder_id_back_large.png" target="_blank" class="btn btn-sm btn-outline-primary mt-1">View Full Size</a>
+                    </div>
+                    <!-- Add more document types if applicable (e.g., Driving License, Selfie with ID) -->
+                </div>
+
+                <form action="#" method="POST" class="mt-4">
+                    <input type="hidden" name="user_id_for_verification" value="USR003"> <!-- Dynamic -->
+                    <div class="form-group">
+                        <label for="verificationAction">Action:</label>
+                        <select id="verificationAction" name="verificationAction" class="form-control" style="max-width:300px;">
+                            <option value="approve">Approve ID</option>
+                            <option value="reject">Reject ID</option>
+                            <option value="request_resubmit">Request Resubmission</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="rejectionReasonGroup" style="display:none;">
+                        <label for="rejectionReason">Reason for Rejection/Resubmission:</label>
+                        <textarea id="rejectionReason" name="rejectionReason" class="form-control" rows="3" placeholder="e.g., Image unclear, Document expired, Name mismatch..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Verification Status</button>
+                    <a href="admin_user_management.html" class="btn btn-secondary">Back to User List</a>
+                </form>
+            </main>
+        </div>
+    </div>
+    <footer class="main-footer"><div class="container"><p>© 2025 Delta Rental - Admin Panel.</p></div></footer>
+    <script>
+        // Show/hide rejection reason field
+        const actionSelect = document.getElementById('verificationAction');
+        const reasonGroup = document.getElementById('rejectionReasonGroup');
+        if (actionSelect && reasonGroup) {
+            actionSelect.addEventListener('change', function() {
+                if (this.value === 'reject' || this.value === 'request_resubmit') {
+                    reasonGroup.style.display = 'block';
+                } else {
+                    reasonGroup.style.display = 'none';
+                }
+            });
+        }
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="js/auth.js"></script>
+<script>
+  const firebaseConfig = {
+  apiKey: "AIzaSyDwPJ4JUS_l3WithXuSB8-x8DpEgfYROts",
+  authDomain: "delta-rental-db03f.firebaseapp.com",
+  projectId: "delta-rental-db03f",
+  storageBucket: "delta-rental-db03f.firebasestorage.app",
+  messagingSenderId: "763197939608",
+  appId: "1:763197939608:web:adb9138f5eaab55c7595ed"
+};
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth(); // Get the auth instance
+</script>
+</body>
+</html>

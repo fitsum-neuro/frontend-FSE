@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Dashboard - Delta Rental</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo"><a href="index.html">Delta Rental</a></div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="owner_dashboard.html" class="active">My Dashboard</a></li>
+                    <li><a href="owner_manage_vehicles.html">My Vehicles</a></li>
+                    <li><a href="owner_bookings.html">Bookings</a></li>
+                    <li><a href="owner_earnings.html">Earnings</a></li>
+                    <li><a href="user_profile.html">My Profile</a></li> <!-- Link to common profile page -->
+                    <li><a href="index.html" class="btn btn-secondary" style="padding: 0.5rem 1rem; color: white;">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Owner Dashboard</h1>
+            <p>Manage your vehicles, bookings, and earnings.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="dashboard-layout">
+            <aside class="dashboard-sidebar">
+                <h3>Owner Menu</h3>
+                <ul>
+                    <li><a href="owner_dashboard.html" class="active">Dashboard Overview</a></li>
+                    <li><a href="owner_manage_vehicles.html">Manage My Vehicles</a></li>
+                    <li><a href="owner_add_vehicle.html">Add New Vehicle</a></li>
+                    <li><a href="owner_bookings.html">View Bookings & Requests</a></li>
+                    <li><a href="owner_earnings.html">Earnings Report</a></li>
+                    <li><a href="user_profile.html">My Profile Settings</a></li>
+                    <li><a href="index.html">Logout</a></li>
+                </ul>
+            </aside>
+
+            <main class="dashboard-content">
+                <h2>Dashboard Overview</h2>
+                
+                <!-- Stats Cards -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                    <div class="stat-card" style="background-color: #f8f9fa; padding: 1.5rem; border-radius: .3rem; text-align: center; border: 1px solid #e9ecef;">
+                        <h4>Active Listings</h4>
+                        <p style="font-size: 2rem; font-weight: bold; color: #007bff;">3</p> <!-- Dynamic -->
+                        <a href="owner_manage_vehicles.html">View Listings</a>
+                    </div>
+                    <div class="stat-card" style="background-color: #f8f9fa; padding: 1.5rem; border-radius: .3rem; text-align: center; border: 1px solid #e9ecef;">
+                        <h4>Pending Requests</h4>
+                        <p style="font-size: 2rem; font-weight: bold; color: #ffc107;">1</p> <!-- Dynamic -->
+                        <a href="owner_bookings.html#pending">View Requests</a>
+                    </div>
+                    <div class="stat-card" style="background-color: #f8f9fa; padding: 1.5rem; border-radius: .3rem; text-align: center; border: 1px solid #e9ecef;">
+                        <h4>Total Earnings (Month)</h4>
+                        <p style="font-size: 2rem; font-weight: bold; color: #28a745;">ETB 5500</p> <!-- Dynamic -->
+                        <a href="owner_earnings.html">View Earnings</a>
+                    </div>
+                </div>
+
+                <h3>Recent Booking Requests</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Car</th>
+                                <th>Renter</th>
+                                <th>Dates</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Toyota Corolla 2020</td>
+                                <td>Hana G.</td>
+                                <td>Mar 15 - Mar 17, 2025</td>
+                                <td><span style="color: #ffc107; font-weight: bold;">Pending</span></td>
+                                <td class="table-actions">
+                                    <a href="booking_request_details.html?id=req456" class="btn btn-sm btn-primary">View & Respond</a>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td>Toyota Land Cruiser</td>
+                                <td>Kebede M.</td>
+                                <td>Mar 10 - Mar 12, 2025</td>
+                                <td><span style="color: #28a745; font-weight: bold;">Confirmed</span></td>
+                                <td class="table-actions">
+                                    <a href="booking_details.html?id=book789" class="btn btn-sm btn-outline-primary">View Details</a>
+                                </td>
+                            </tr>
+                            <!-- If no recent requests:
+                            <tr><td colspan="5" class="text-center">No recent booking requests.</td></tr>
+                            -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-center mt-3">
+                    <a href="owner_bookings.html" class="btn btn-secondary">View All Bookings</a>
+                </div>
+
+                <hr class="mt-4 mb-4">
+
+                <h3>Quick Actions</h3>
+                <a href="owner_add_vehicle.html" class="btn btn-success">Add New Vehicle</a>
+                <a href="owner_manage_vehicles.html" class="btn btn-primary">Manage My Vehicles</a>
+
+            </main>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>© 2025 Delta Rental. All rights reserved.</p>
+            <p>
+                <a href="about.html">About Us</a> | 
+                <a href="contact.html">Contact</a> | 
+                <a href="#">Terms of Service</a> | 
+                <a href="#">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="js/auth.js"></script>
+<script>
+  const firebaseConfig = {
+  apiKey: "AIzaSyDwPJ4JUS_l3WithXuSB8-x8DpEgfYROts",
+  authDomain: "delta-rental-db03f.firebaseapp.com",
+  projectId: "delta-rental-db03f",
+  storageBucket: "delta-rental-db03f.firebasestorage.app",
+  messagingSenderId: "763197939608",
+  appId: "1:763197939608:web:adb9138f5eaab55c7595ed"
+};
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth(); // Get the auth instance
+</script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Rental History - Delta Rental</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo"><a href="index.html">Delta Rental</a></div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="browse_vehicles.html">Browse Vehicles</a></li>
+                    <li><a href="user_reservations.html">My Reservations</a></li>
+                    <li><a href="user_profile.html" class="active">My Profile</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="index.html" class="btn btn-secondary" style="padding: 0.5rem 1rem; color: white;">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>My Rental History</h1>
+            <p>A record of all your past completed rentals.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="dashboard-layout">
+            <aside class="dashboard-sidebar">
+                <h3>Renter Menu</h3>
+                <ul>
+                    <li><a href="user_profile.html">Profile Overview</a></li>
+                    <li><a href="user_edit_profile.html">Edit Profile</a></li>
+                    <li><a href="user_reservations.html">My Reservations</a></li>
+                    <li><a href="user_rental_history.html" class="active">Rental History</a></li>
+                    <li><a href="#">Account Settings</a></li>
+                    <li><a href="index.html">Logout</a></li>
+                </ul>
+            </aside>
+
+            <main class="dashboard-content">
+                <h2>Completed Rentals</h2>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Car</th>
+                                <th>Rental Period</th>
+                                <th>Total Paid</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a href="vehicle_details.html?id=3">Hyundai Accent 2019</a></td>
+                                <td>Feb 01, 2025 - Feb 03, 2025</td>
+                                <td>ETB 2400.00</td>
+                                <td><span style="color: #007bff; font-weight: bold;">Completed</span></td>
+                                <td class="table-actions">
+                                    <a href="reservation_details.html?id=res100" class="btn btn-sm btn-outline-primary">View Details</a>
+                                    <a href="leave_review.html?booking_id=res100" class="btn btn-sm btn-success">Leave/View Review</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a href="vehicle_details.html?id=5">Toyota Yaris</a></td>
+                                <td>Jan 10, 2025 - Jan 11, 2025</td>
+                                <td>ETB 1000.00</td>
+                                <td><span style="color: #007bff; font-weight: bold;">Completed</span></td>
+                                <td class="table-actions">
+                                    <a href="reservation_details.html?id=res095" class="btn btn-sm btn-outline-primary">View Details</a>
+                                    <a href="leave_review.html?booking_id=res095" class="btn btn-sm btn-success">Leave/View Review</a>
+                                </td>
+                            </tr>
+                            <!-- If no past rentals:
+                            <tr>
+                                <td colspan="5" class="text-center">You have no past rental history.</td>
+                            </tr>
+                            -->
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Pagination if many items -->
+            </main>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>© 2025 Delta Rental. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="js/auth.js"></script>
+<script>
+  const firebaseConfig = {
+  apiKey: "AIzaSyDwPJ4JUS_l3WithXuSB8-x8DpEgfYROts",
+  authDomain: "delta-rental-db03f.firebaseapp.com",
+  projectId: "delta-rental-db03f",
+  storageBucket: "delta-rental-db03f.firebasestorage.app",
+  messagingSenderId: "763197939608",
+  appId: "1:763197939608:web:adb9138f5eaab55c7595ed"
+};
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth(); // Get the auth instance
+</script>
+</body>
+</html>

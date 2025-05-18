@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Reservations - Delta Rental</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="container">
+        <div class="logo"><a href="index.html">Delta Rental</a></div>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="browse_vehicles.html">Browse Vehicles</a></li>
+            <li
+              ><a href="user_reservations.html" class="active"
+                >My Reservations</a
+              ></li
+            >
+            <li><a href="user_profile.html">My Profile</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li
+              ><a
+                href="index.html"
+                class="btn btn-secondary"
+                style="padding: 0.5rem 1rem; color: white"
+                >Logout</a
+              ></li
+            >
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="page-header">
+      <div class="container">
+        <h1>My Reservations</h1>
+        <p>Manage your upcoming, past, and cancelled bookings.</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="dashboard-layout">
+        <aside class="dashboard-sidebar">
+          <h3>Renter Menu</h3>
+          <ul>
+            <li><a href="user_profile.html">Profile Overview</a></li>
+            <li><a href="user_edit_profile.html">Edit Profile</a></li>
+            <li
+              ><a href="user_reservations.html" class="active"
+                >My Reservations</a
+              ></li
+            >
+            <li><a href="user_rental_history.html">Rental History</a></li>
+            <li><a href="#">Account Settings</a></li>
+            <li><a href="index.html">Logout</a></li>
+          </ul>
+        </aside>
+
+        <main class="dashboard-content">
+          <!-- Tabs for Upcoming, Past, Cancelled -->
+          <div
+            class="tabs-navigation"
+            style="margin-bottom: 1.5rem; border-bottom: 1px solid #dee2e6"
+          >
+            <button class="btn btn-tab active" onclick="showTab('upcoming')"
+              >Upcoming</button
+            >
+            <button class="btn btn-tab" onclick="showTab('past')"
+              >Past Rentals</button
+            >
+            <button class="btn btn-tab" onclick="showTab('cancelled')"
+              >Cancelled</button
+            >
+          </div>
+
+          <div id="upcoming" class="tab-content">
+            <h2>Upcoming Reservations</h2>
+            <div class="table-responsive">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Car</th>
+                    <th>Pickup Date & Time</th>
+                    <th>Return Date & Time</th>
+                    <th>Total Cost</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Example Upcoming Reservation 1 -->
+                  <tr>
+                    <td
+                      ><a href="vehicle_details.html?id=1"
+                        >Toyota Corolla 2020</a
+                      ></td
+                    >
+                    <td>Mar 10, 2025, 10:00 AM</td>
+                    <td>Mar 12, 2025, 10:00 AM</td>
+                    <td>ETB 3000.00</td>
+                    <td
+                      ><span style="color: #28a745; font-weight: bold"
+                        >Confirmed</span
+                      ></td
+                    >
+                    <td class="table-actions">
+                      <a
+                        href="reservation_details.html?id=res123"
+                        class="btn btn-sm btn-outline-primary"
+                        >View</a
+                      >
+                      <a
+                        href="#"
+                        class="btn btn-sm btn-danger"
+                        onclick="return confirm('Are you sure you want to cancel this reservation? Check cancellation policy.')"
+                        >Cancel</a
+                      >
+                    </td>
+                  </tr>
+                  <!-- Example Upcoming Reservation 2 (Pending Owner Confirmation) -->
+                  <tr>
+                    <td
+                      ><a href="vehicle_details.html?id=2"
+                        >Toyota Land Cruiser</a
+                      ></td
+                    >
+                    <td>Apr 05, 2025, 02:00 PM</td>
+                    <td>Apr 07, 2025, 02:00 PM</td>
+                    <td>ETB 7000.00</td>
+                    <td
+                      ><span style="color: #ffc107; font-weight: bold"
+                        >Pending Confirmation</span
+                      ></td
+                    >
+                    <td class="table-actions">
+                      <a
+                        href="reservation_details.html?id=res124"
+                        class="btn btn-sm btn-outline-primary"
+                        >View</a
+                      >
+                      <a
+                        href="#"
+                        class="btn btn-sm btn-danger"
+                        onclick="return confirm('Are you sure you want to cancel this request?')"
+                        >Cancel Request</a
+                      >
+                    </td>
+                  </tr>
+                  <!-- Add more rows dynamically -->
+                  <!-- If no upcoming reservations:
+                                <tr>
+                                    <td colspan="6" class="text-center">No upcoming reservations. <a href="browse_vehicles.html">Find a car to rent!</a></td>
+                                </tr>
+                                -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div id="past" class="tab-content" style="display: none">
+            <h2>Past Rentals</h2>
+            <div class="table-responsive">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Car</th>
+                    <th>Rental Period</th>
+                    <th>Total Paid</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td
+                      ><a href="vehicle_details.html?id=3"
+                        >Hyundai Accent 2019</a
+                      ></td
+                    >
+                    <td>Feb 01, 2025 - Feb 03, 2025</td>
+                    <td>ETB 2400.00</td>
+                    <td
+                      ><span style="color: #007bff; font-weight: bold"
+                        >Completed</span
+                      ></td
+                    >
+                    <td class="table-actions">
+                      <a
+                        href="reservation_details.html?id=res100"
+                        class="btn btn-sm btn-outline-primary"
+                        >View Details</a
+                      >
+                      <a
+                        href="leave_review.html?booking_id=res100"
+                        class="btn btn-sm btn-success"
+                        >Leave Review</a
+                      >
+                    </td>
+                  </tr>
+                  <!-- Add more rows dynamically -->
+                  <!-- If no past rentals:
+                                <tr>
+                                    <td colspan="5" class="text-center">You have no past rentals.</td>
+                                </tr>
+                                -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div id="cancelled" class="tab-content" style="display: none">
+            <h2>Cancelled Reservations</h2>
+            <div class="table-responsive">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Car</th>
+                    <th>Intended Dates</th>
+                    <th>Reason</th>
+                    <th>Cancelled On</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td
+                      ><a href="vehicle_details.html?id=4">Suzuki Dzire</a></td
+                    >
+                    <td>Jan 20, 2025 - Jan 22, 2025</td>
+                    <td>Cancelled by Renter</td>
+                    <td>Jan 15, 2025</td>
+                  </tr>
+                  <!-- Add more rows dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <footer class="main-footer">
+      <div class="container">
+        <p>© 2025 Delta Rental. All rights reserved.</p>
+        <p>
+          <a href="about.html">About Us</a> |
+          <a href="contact.html">Contact</a> |
+          <a href="#">Terms of Service</a> |
+          <a href="#">Privacy Policy</a>
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      function showTab(tabName) {
+        var i;
+        var tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        var tablinks = document.getElementsByClassName("btn-tab");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        event.currentTarget.className += " active";
+      }
+      // Show the first tab by default
+      document.addEventListener("DOMContentLoaded", function () {
+        if (document.getElementById("upcoming")) {
+          document.getElementById("upcoming").style.display = "block";
+          document.querySelector(".btn-tab").classList.add("active");
+        }
+      });
+    </script>
+    <style>
+      .btn-tab {
+        background-color: transparent;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        cursor: pointer;
+        font-weight: 500;
+        color: #495057;
+        border-bottom: 3px solid transparent;
+        margin-right: 0.5rem;
+      }
+      .btn-tab.active {
+        color: #007bff;
+        border-bottom-color: #007bff;
+      }
+      .btn-tab:hover {
+        color: #0056b3;
+      }
+    </style>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyDwPJ4JUS_l3WithXuSB8-x8DpEgfYROts",
+        authDomain: "delta-rental-db03f.firebaseapp.com",
+        projectId: "delta-rental-db03f",
+        storageBucket: "delta-rental-db03f.firebasestorage.app",
+        messagingSenderId: "763197939608",
+        appId: "1:763197939608:web:adb9138f5eaab55c7595ed",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const auth = firebase.auth(); // Get the auth instance
+    </script>
+  </body>
+</html>

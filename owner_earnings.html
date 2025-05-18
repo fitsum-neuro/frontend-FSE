@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Earnings - Delta Rental</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo"><a href="index.html">Delta Rental</a></div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="owner_dashboard.html">My Dashboard</a></li>
+                    <li><a href="owner_manage_vehicles.html">My Vehicles</a></li>
+                    <li><a href="owner_bookings.html">Bookings</a></li>
+                    <li><a href="owner_earnings.html" class="active">Earnings</a></li>
+                    <li><a href="user_profile.html">My Profile</a></li>
+                    <li><a href="index.html" class="btn btn-secondary" style="padding: 0.5rem 1rem; color: white;">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Earnings Report</h1>
+            <p>Track your income from renting out your vehicles.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="dashboard-layout">
+            <aside class="dashboard-sidebar">
+                <h3>Owner Menu</h3>
+                <ul>
+                    <li><a href="owner_dashboard.html">Dashboard Overview</a></li>
+                    <li><a href="owner_manage_vehicles.html">Manage My Vehicles</a></li>
+                    <li><a href="owner_add_vehicle.html">Add New Vehicle</a></li>
+                    <li><a href="owner_bookings.html">View Bookings & Requests</a></li>
+                    <li><a href="owner_earnings.html" class="active">Earnings Report</a></li>
+                    <li><a href="user_profile.html">My Profile Settings</a></li>
+                    <li><a href="index.html">Logout</a></li>
+                </ul>
+            </aside>
+
+            <main class="dashboard-content">
+                <h2>Earnings Summary</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                    <div class="stat-card" style="background-color: #e6fff0; padding: 1.5rem; border-radius: .3rem; text-align: center; border: 1px solid #c3e6cb;">
+                        <h4>Total Earned (All Time)</h4>
+                        <p style="font-size: 2rem; font-weight: bold; color: #28a745;">ETB 25,750</p> <!-- Dynamic -->
+                    </div>
+                    <div class="stat-card" style="background-color: #f0f8ff; padding: 1.5rem; border-radius: .3rem; text-align: center; border: 1px solid #cfe2f3;">
+                        <h4>This Month (March 2025)</h4>
+                        <p style="font-size: 2rem; font-weight: bold; color: #007bff;">ETB 5,500</p> <!-- Dynamic -->
+                    </div>
+                    <div class="stat-card" style="background-color: #fff3cd; padding: 1.5rem; border-radius: .3rem; text-align: center; border: 1px solid #ffeeba;">
+                        <h4>Pending Payout</h4>
+                        <p style="font-size: 2rem; font-weight: bold; color: #ffc107;">ETB 1,200</p> <!-- Dynamic -->
+                    </div>
+                </div>
+
+                <h3>Transaction History</h3>
+                <div style="margin-bottom: 1rem; display: flex; gap: 1rem; align-items: center;">
+                    <label for="monthFilter">Filter by Month:</label>
+                    <select id="monthFilter" class="form-control" style="width: auto;">
+                        <option value="all">All Time</option>
+                        <option value="2025-03">March 2025</option>
+                        <option value="2025-02">February 2025</option>
+                        <option value="2025-01">January 2025</option>
+                    </select>
+                </div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date Completed</th>
+                                <th>Booking ID</th>
+                                <th>Vehicle</th>
+                                <th>Renter</th>
+                                <th>Gross Amount</th>
+                                <th>Platform Fee</th>
+                                <th>Net Earning</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mar 05, 2025</td>
+                                <td><a href="booking_details_owner.html?id=bookABC">BK00120</a></td>
+                                <td>Toyota Vitz</td>
+                                <td>Sara T.</td>
+                                <td>ETB 2500.00</td>
+                                <td>ETB 250.00 (10%)</td>
+                                <td style="color: green; font-weight: bold;">ETB 2250.00</td>
+                                <td><span style="color: green;">Paid Out</span></td>
+                            </tr>
+                             <tr>
+                                <td>Feb 28, 2025</td>
+                                <td><a href="booking_details_owner.html?id=bookXYZ">BK00115</a></td>
+                                <td>Hyundai Accent</td>
+                                <td>Mark K.</td>
+                                <td>ETB 1500.00</td>
+                                <td>ETB 150.00 (10%)</td>
+                                <td style="color: green; font-weight: bold;">ETB 1350.00</td>
+                                <td><span style="color: orange;">Pending Payout</span></td>
+                            </tr>
+                            <!-- More transactions -->
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Payout settings link could be here -->
+                <div class="mt-3">
+                    <a href="owner_payout_settings.html" class="btn btn-outline-primary">Payout Settings</a>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>© 2025 Delta Rental. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="js/auth.js"></script>
+<script>
+  const firebaseConfig = {
+  apiKey: "AIzaSyDwPJ4JUS_l3WithXuSB8-x8DpEgfYROts",
+  authDomain: "delta-rental-db03f.firebaseapp.com",
+  projectId: "delta-rental-db03f",
+  storageBucket: "delta-rental-db03f.firebasestorage.app",
+  messagingSenderId: "763197939608",
+  appId: "1:763197939608:web:adb9138f5eaab55c7595ed"
+};
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth(); // Get the auth instance
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Vehicle VEH001 - Admin - Delta Rental</title> <!-- Dynamic -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="main-header">
+         <div class="container">
+            <div class="logo"><a href="index.html">Delta Rental - Admin</a></div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="admin_dashboard.html">Dashboard</a></li>
+                    <li><a href="admin_user_management.html">Users</a></li>
+                    <li><a href="admin_vehicle_management.html" class="active">Vehicles</a></li>
+                    <!-- ... other admin nav items ... -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Admin Edit Vehicle: <span id="adminEditingCarName">Toyota Corolla</span> (VEH001)</h1> <!-- Dynamic -->
+            <p>Modify vehicle details, ownership, and platform status.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="dashboard-layout">
+            <aside class="dashboard-sidebar">
+                <h3>Admin Menu</h3>
+                <ul>
+                    <li><a href="admin_dashboard.html">Overview</a></li>
+                    <li><a href="admin_vehicle_management.html" class="active">Vehicle Management</a></li>
+                    <!-- ... other admin menu items ... -->
+                </ul>
+            </aside>
+            <main class="dashboard-content">
+                <h2>Vehicle Information (Admin Edit)</h2>
+               
+             
+                <form action="#" method="POST"> <!-- Admin update endpoint -->
+                    <input type="hidden" name="vehicle_id_admin" value="VEH001"> <!-- Dynamic -->
+                    
+                    <div class="form-group">
+                        <label for="vehicleOwnerAdmin">Assigned Owner:</label>
+                        <select id="vehicleOwnerAdmin" name="vehicleOwnerAdmin" class="form-control">
+                            <option value="USR002" selected>Jane Smith (USR002)</option> <!-- Dynamic -->
+                            <option value="USR005">Mike Ross (USR005)</option>
+                            <!-- Populate with all owners -->
+                        </select>
+                    </div>
+
+                    <!-- ALL OTHER VEHICLE FIELDS from owner_edit_vehicle.html would go here, pre-filled -->
+                    <div class="form-group">
+                        <label for="carMakeAdmin">Car Make</label>
+                        <input type="text" id="carMakeAdmin" name="carMakeAdmin" class="form-control" value="Toyota" required>
+                    </div>
+                     <!-- ... etc. ... -->
+
+                    <hr>
+                    <h3>Platform Status & Notes (Admin Only)</h3>
+                    <div class="form-group">
+                        <label for="platformStatus">Platform Listing Status:</label>
+                        <select id="platformStatus" name="platformStatus" class="form-control">
+                            <option value="approved_active" selected>Approved & Active</option> <!-- Dynamic -->
+                            <option value="pending_review">Pending Admin Review</option>
+                            <option value="suspended_by_admin">Suspended by Admin</option>
+                            <option value="featured">Featured Listing</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicleAdminNotes">Admin Notes for this Vehicle (Internal):</label>
+                        <textarea id="vehicleAdminNotes" name="vehicleAdminNotes" class="form-control" rows="3"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Save Vehicle Changes (Admin)</button>
+                    <a href="admin_vehicle_management.html" class="btn btn-secondary">Cancel</a>
+                </form>
+            </main>
+        </div>
+    </div>
+    <footer class="main-footer"><div class="container"><p>© 2025 Delta Rental - Admin Panel.</p></div></footer>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="js/auth.js"></script>
+<script>
+  const firebaseConfig = {
+  apiKey: "AIzaSyDwPJ4JUS_l3WithXuSB8-x8DpEgfYROts",
+  authDomain: "delta-rental-db03f.firebaseapp.com",
+  projectId: "delta-rental-db03f",
+  storageBucket: "delta-rental-db03f.firebasestorage.app",
+  messagingSenderId: "763197939608",
+  appId: "1:763197939608:web:adb9138f5eaab55c7595ed"
+};
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth(); // Get the auth instance
+</script>
+</body>
+</html>
