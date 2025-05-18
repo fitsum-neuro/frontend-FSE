@@ -65,53 +65,6 @@
             </p>
         </div>
     </footer>
-<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
-<script src="js/auth.js"></script>
-<script>
-  const firebaseConfig = {
-  apiKey: "AIzaSyDwPJ4JUS_l3WithXuSB8-x8DpEgfYROts",
-  authDomain: "delta-rental-db03f.firebaseapp.com",
-  projectId: "delta-rental-db03f",
-  storageBucket: "delta-rental-db03f.firebasestorage.app",
-  messagingSenderId: "763197939608",
-  appId: "1:763197939608:web:adb9138f5eaab55c7595ed"
-};
 
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth(); // Get the auth instance
-</script>
-
-<script>
-  const loginForm = document.getElementById('loginForm');
-  const loginErrorEl = document.getElementById('loginError');
-
-  if (loginForm) {
-    loginForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      loginErrorEl.textContent = '';
-
-      const email = document.getElementById('loginEmail').value;
-      const password = document.getElementById('loginPassword').value;
-
-      try {
-        const userCredential = await auth.signInWithEmailAndPassword(email, password);
-        const firebaseUser = userCredential.user;
-        console.log('Firebase user logged in:', firebaseUser.uid);
-
-        // Login successful, Firebase handles session.
-        // You'll use onAuthStateChanged to manage UI and get tokens for backend calls.
-        alert('Login successful!');
-        // Redirect based on role will happen via onAuthStateChanged or by fetching user data
-        window.location.href = 'index.html'; // Or to a dashboard loading page
-
-      } catch (error) {
-        console.error('Login error:', error);
-        loginErrorEl.textContent = error.message;
-      }
-    });
-  }
-</script>
 </body>
 </html>
