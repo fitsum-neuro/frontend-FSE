@@ -1,93 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register - Delta Rental</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
     <header class="main-header">
-        <div class="container">
-            <div class="logo"><a href="index.html">Delta Rental</a></div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="browse_vehicles.html">Browse Vehicles</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="register.html" class="btn btn-primary active" style="padding: 0.5rem 1rem; color: white;">Sign Up</a></li>
-                </ul>
-            </nav>
-        </div>
+      <div class="container">
+        <div class="logo"><a href="index.html">Delta Rental</a></div>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="browse_vehicles.html">Browse Vehicles</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li>
+              <a
+                href="register.html"
+                class="btn btn-primary active"
+                style="padding: 0.5rem 1rem; color: white"
+                >Sign Up</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <div class="page-header">
-        <div class="container">
-            <h1>Join Delta Rental</h1>
-            <p>Create an account to start renting or listing cars.</p>
-        </div>
+      <div class="container">
+        <h1>Join Delta Rental</h1>
+        <p>Create an account to start renting or listing cars.</p>
+      </div>
     </div>
 
     <div class="container">
-        <div class="form-container">
-            <h2>Create Account</h2>
-            <form id="registerForm" action="#" method="POST"> <!-- Backend action to be added -->
-                <div class="form-group">
-                    <label for="firstName">First Name</label>
-                    <input type="text" id="firstName" name="firstName" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="lastName">Last Name</label>
-                    <input type="text" id="lastName" name="lastName" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="phoneNumber">Phone Number</label>
-                    <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="confirmPassword">Confirm Password</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="userRole">Register as:</label>
-                    <select id="userRole" name="userRole" class="form-control">
-                        <option value="renter">Renter (I want to rent cars)</option>
-                        <option value="owner">Owner (I want to list my car)</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <input type="checkbox" id="terms" name="terms" required>
-                    <label for="terms" style="display: inline;">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</label>
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">Register</button>
-            </form>
-            <p class="text-center mt-3">
-                Already have an account? <a href="login.html">Login here</a>
-            </p>
-        </div>
+      <div class="form-container">
+        <h2>Create Account</h2>
+        <form id="registerForm" action="#" method="POST">
+          <!-- Backend action to be added -->
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="phoneNumber">Phone Number</label>
+            <input
+              type="tel"
+              id="phoneNumber"
+              name="phoneNumber"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="userRole">Register as:</label>
+            <select id="userRole" name="userRole" class="form-control">
+              <option value="renter">Renter (I want to rent cars)</option>
+              <option value="owner">Owner (I want to list my car)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input type="checkbox" id="terms" name="terms" required />
+            <label for="terms" style="display: inline"
+              >I agree to the <a href="#">Terms of Service</a> and
+              <a href="#">Privacy Policy</a>.</label
+            >
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">
+            Register
+          </button>
+        </form>
+        <p class="text-center mt-3">
+          Already have an account? <a href="login.html">Login here</a>
+        </p>
+      </div>
     </div>
 
     <footer class="main-footer">
-        <div class="container">
-            <p>© 2025 Delta Rental. All rights reserved.</p>
-             <p>
-                <a href="about.html">About Us</a> | 
-                <a href="contact.html">Contact</a> | 
-                <a href="#">Terms of Service</a> | 
-                <a href="#">Privacy Policy</a>
-            </p>
-        </div>
+      <div class="container">
+        <p>© 2025 Delta Rental. All rights reserved.</p>
+        <p>
+          <a href="about.html">About Us</a> |
+          <a href="contact.html">Contact</a> |
+          <a href="#">Terms of Service</a> |
+          <a href="#">Privacy Policy</a>
+        </p>
+      </div>
     </footer>
-</body>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("registerForm");
+
+        form.addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          const firstName = form.firstName.value;
+          const lastName = form.lastName.value;
+          const email = form.email.value;
+          const phoneNumber = form.phoneNumber.value; // Not currently used in backend
+          const password = form.password.value;
+          const confirmPassword = form.confirmPassword.value;
+          const role = form.userRole.value;
+
+          if (password !== confirmPassword) {
+            alert("Passwords do not match.");
+            return;
+          }
+
+          try {
+            const response = await fetch(
+              "http://localhost:3000/api/users/OwnerAndRenter",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  firstName,
+                  lastName,
+                  email,
+                  password,
+                  role,
+                }),
+              }
+            );
+
+            if (response.ok) {
+              alert("Registration successful!");
+              form.reset();
+            } else {
+              const errorMessage = await response.text();
+              alert(`Error: ${errorMessage}`);
+            }
+          } catch (error) {
+            console.error("Error:", error);
+            alert("Something went wrong. Please try again later.");
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
