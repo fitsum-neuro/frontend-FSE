@@ -1,79 +1,42 @@
-// js/login.js
-document.addEventListener('DOMContentLoaded', () => {
-    const loginForm = document.getElementById('loginForm');
-    const messageArea = document.getElementById('messageArea');
+document
+  .getElementById("loginForm")
+  .addEventListener("submit", async function (e) {
+    e.preventDefault();
 
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
 
-    const BACKEND_URL = 'http://localhost:3000'; 
+    const messageArea = document.getElementById("messageArea");
+    messageArea.style.display = "none";
 
-    // Function to display messages
-    function showMessage(message, type = 'error') { 
-        messageArea.textContent = message;
-        messageArea.className = `message-area ${type}`;
-        messageArea.style.display = 'block';
+    try {
+      const response = await fetch("http://localhost:3000/api/userAuth", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(errorText || "Login failed");
+      }
+
+      const token = response.headers.get("x-auth-token");
+      if (!token) {
+        throw new Error("No token received");
+      }
+
+      localStorage.setItem("authToken", token);
+
+      alert("Login successful!");
+      window.location.href = "user_profile.html";
+    } catch (err) {
+      messageArea.textContent = err.message;
+      messageArea.style.display = "block";
+      messageArea.style.backgroundColor = "#f8d7da";
+      messageArea.style.color = "#721c24";
+      messageArea.style.border = "1px solid #f5c6cb";
     }
-
-    loginForm.addEventListener('submit', async (event) => {
-        event.preventDefault(); 
-
-        messageArea.textContent = '';
-        messageArea.style.display = 'none';
-        messageArea.className = 'message-area';
-
-        const email = document.getElementById('email').value.trim();
-        const password = document.getElementById('password').value;
-
-        if (!email || !password) {
-            showMessage('Please enter both email and password.', 'error');
-            return;
-        }
-
-        const loginData = {
-            email,
-            password,
-        };
-
-        try {
-           
-            const response = await fetch(`${BACKEND_URL}/api/auth`, { 
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(loginData),
-            });
-
-            const responseData = await response.json();
-
-            if (response.ok && responseData.token) {
-                // Login successful
-                showMessage('Login successful! Redirecting...', 'success');
-
-              
-                localStorage.setItem('authToken', responseData.token);
-                localStorage.setItem('authUser', JSON.stringify(responseData.user)); 
-              
-                setTimeout(() => {
-                    
-                    if (responseData.user && responseData.user.role === 'owner') {
-                        window.location.href = 'owner-dashboard.html'; // Example
-                    } else if (responseData.user && responseData.user.role === 'renter') {
-                        window.location.href = 'renter-dashboard.html'; // Example
-                    } else if (responseData.user && responseData.user.role === 'admin') {
-                         window.location.href = 'admin-dashboard.html'; // Example
-                    }
-                    else {
-                        window.location.href = 'index.html';
-                    }
-                }, 1500); 
-
-            } else {
-              
-                showMessage(responseData.message || 'Login failed. Please check your credentials.', 'error');
-            }
-        } catch (error) {
-            console.error('Login error:', error);
-            showMessage('An unexpected error occurred. Please try again.', 'error');
-        }
-    });
-});
+  });
